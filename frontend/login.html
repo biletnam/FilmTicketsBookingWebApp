@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.form_row {
+padding: 0 0 8px 0;
+text-align: left;
+}
+.clearfix {
+zoom: 1;
+}
+.form_row .login_form_label {
+display: block;
+float: left;
+padding: 3px 0;
+width: 100px;
+}
+.labell{
+cursor: pointer;
+color: #666;
+font-weight: bold;
+vertical-align: middle;
+font-size: 14px;
+}
+
+.input {
+position: relative;
+left: 20px;
+border: 3px solid #bdc7d8;
+margin: 0;
+padding: 3px;
+padding-bottom: 6px;
+width:160px;
+}
+.persistent {
+padding: 3px 0 3px 118px;
+}
+.kanni{
+  position:relative;
+  left:400px;
+  top:50px;
+}
+.fontformat
+{
+font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+font-size: 12px;
+}
+#login_button_inline {
+float: left;
+margin-bottom: 5px;
+margin-right: 5px;
+margin-left:18px;
+}
+.image{
+	width:55px;
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+
+<script>
+function myfunc(){
+  var x = document.getElementById("email").value;
+  window.localStorage.setItem("account",x);
+  window.location = "information.html";
+}
+</script>
+</head>
+
+<body>
+  <div>
+    <img src="cinema.png"></img>
+  </div>
+
+  <div class="kanni">
+  <div class="form_row clearfix">
+  	<label for="email" class="login_form_label labell">Account: </label>
+  	<input type="text" class="input" id="email" name="email" value="">
+  </div>
+
+  <div class="form_row clearfix">
+  	<label for="pass" class="login_form_label labell">Password:</label>
+  	<input type="password" name="pass" id="pass" class="input">
+  </div>
+
+  <div class="persistent">
+  	<div class="uiInputLabel clearfix uiInputLabelLegacy">
+  		<input id="persist_box" type="checkbox" value="1" checked="1" name="persistent" class="uiInputLabelInput uiInputLabelCheckbox">
+  		<label for="persist_box" class="uiInputLabelLabel fontformat">Keep me logged in</label>
+  	</div>
+  </div>
+
+  <div style="margin-top:7px" id="buttons" class="form_row clearfix">
+  	<label class="login_form_label"></label>
+  	<div id="login_button_inline">
+  		<img src="login.png" onclick="myfunc()" class="image"><img>
+  	</div>
+  	<div id="register_link" class = "fontformat">or<strong><a href="register.html"> Sign up</a></strong>
+  	</div>
+  </div>
+  </div>
+</body>
+</html> 
+

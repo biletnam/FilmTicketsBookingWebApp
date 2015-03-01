@@ -1,0 +1,297 @@
+<head>
+<!-- <link rel="stylesheet" type="text/css" href="ff.css"> -->
+<link rel="stylesheet" type="text/css" href="48.css">
+<style>
+.yy{
+    background-color: #333;
+}
+.fonts
+{
+    font-family: "proxima-nova","Helvetica Neue",Arial,Sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+}
+div.y{
+    position: relative;
+    left: 550px;
+}
+div.yr{
+    position: relative;
+    left: 580px;
+}
+div.yrr{
+    position: relative;
+    left: 620px;
+}
+div.x{
+    position: relative;
+    left: 600px;
+}
+li.x{
+    display: inline-block;
+    width: 25px;
+}
+img.r{
+
+background-color:red;
+
+}
+.z{
+    padding-top: 40px;
+    padding-left:20px;
+}
+.width_height{
+    width : 25px;
+    height : 25px;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+function changesrc(clicked_id) {
+
+//document.getElementById(clicked_id).src="Red.png";
+
+} 
+$(document).ready(function(){
+    $('li img').click(function(event){
+        $(event.target).attr("src","Red.png");
+
+        var info = {
+            'ty': "reserve",
+            'seat': $(event.target).attr("id"), 
+            'room': window.localStorage.getItem("room"),
+            'name': window.localStorage.getItem("account"),
+        };
+
+        $.ajax({
+            url: "process.php",
+            data: JSON.stringify(info),
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+        });
+    });
+});
+
+function myFunc(){
+            
+           
+            var info = {
+            'ty': "room",
+            'room': window.localStorage.getItem("room"),
+             };
+
+        $.ajax({
+            url: "process.php",
+            data: JSON.stringify(info),
+            type: "POST",
+            success:function(data){
+              
+              var objjson = JSON.stringify(data);
+              var j = JSON.parse(objjson);
+              // alert(j.seats);
+              var nums = j.seats.split("_");
+               for (var i = 0; i < nums.length - 1 ; i++) { 
+                     document.getElementById(nums[i]).src = "Red.png";
+                }
+                },
+            error: function(e){
+              // alert("error");
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+        });
+
+        }
+
+function myfunc1(){
+  window.location = "information.html";
+}
+</script>
+
+
+<!-- <link rel="stylesheet" type="text/css" href="1.css"> -->
+</head>
+
+<body onload="myFunc()">
+
+    
+    <div class="yr">
+            <span>&nbsp&nbsp&nbsp&nbsp</span>
+            <span class="fonts">
+                <img src="Empty.png" alt="love-seat" width="18" height="18">&nbspAvailable</span>
+            
+            <span>&nbsp&nbsp&nbsp&nbsp</span>
+        
+            <span class="fonts">
+                <img class="r" src="Red.png" alt="love-seat" width="18" height="18">Reserved</span>
+    </div>
+
+    <div class="x yrr">
+        <span class="front fonts yy yrr"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFront of cinema&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+    </div>
+
+    <div class="y">            
+            <ul class="row">
+                <li class="x">A</li>
+                <li class="x "><img class="width_height" id="1" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="2" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="3" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="4" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="5" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="6" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="7" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="8" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="9" src="Empty.png" ></li>
+                <li class="x "><img class="width_height" id="10" src="Empty.png" ></li>
+                
+                
+            </ul>
+            
+             <ul class="row">
+                <li class="x">B</li>
+                <li class="x"><img class="width_height" id="11" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="12" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="13" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="14" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="15" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="16" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="17" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="18" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="19" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="20" src="Empty.png" ></li>
+            </ul>
+
+             <ul class="row">
+                <li class="x">C</li>
+                <li class="x"><img class="width_height" id="21" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="22" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="23" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="24" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="25" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="26" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="27" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="28" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="29" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="30" src="Empty.png" ></li>
+            </ul>
+
+
+             <ul class="row">
+                <li class="x">I</li>
+                <li class="x"><img class="width_height" id="31" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="32" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="33" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="34" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="35" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="36" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="37" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="38" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="39" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="40" src="Empty.png" ></li>
+            </ul>
+            
+             <ul class="row">
+                <li class="x">D</li>
+               <li class="x"><img class="width_height" id="41" src="Empty.png"  ></li>
+                <li class="x"><img class="width_height" id="42" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="43" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="44" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="45" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="46" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="47" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="48" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="49" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="50" src="Empty.png" ></li>
+            </ul>
+
+             <ul class="row">
+                <li class="x">E</li>
+                <li class="x"><img class="width_height" id="51" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="52" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="53" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="54" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="55" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="56" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="57" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="58" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="59" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="60" src="Empty.png" ></li>
+            </ul>
+
+             <ul class="row">
+                <li class="x">F</li>
+                <li class="x"><img class="width_height" id="61" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="62" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="63" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="64" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="65" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="66" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="67" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="68" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="69" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="70" src="Empty.png" ></li>
+            </ul>
+
+             <ul class="row">
+                <li class="x">G</li>
+                <li class="x"><img class="width_height" id="71" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="72" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="73" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="74" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="75" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="76" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="77" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="78" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="79" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="80" src="Empty.png" ></li>
+            </ul>
+
+             <ul class="row">
+                <li class="x">H</li>
+                <li class="x"><img class="width_height" id="81" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="82" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="83" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="84" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="85" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="86" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="87" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="88" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="89" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="90" src="Empty.png" ></li>
+            </ul>
+
+
+             <ul class="row">
+                <li class="x">J</li>
+                <li class="x"><img class="width_height" id="91" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="92" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="93" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="94" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="95" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="96" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="97" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="98" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="99" src="Empty.png" ></li>
+                <li class="x"><img class="width_height" id="100" src="Empty.png" ></li>
+            </ul>
+        </div>
+
+        <div class="x">            
+            <span class="fonts yy">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRear of cinema&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+        </div>
+
+        <div class="y z yrr">
+            <img onclick="myfunc1()" src="confirm.png" width = "130px" height = "40px">
+        </img>
+        </div>
+
+<table>
+    <tr>
+        <?php        ?>
+    </tr>
+    <tr>
+    </tr>   
+</table>
+</body>   

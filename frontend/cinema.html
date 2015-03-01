@@ -1,0 +1,152 @@
+<html><head><style>
+.first
+{
+    position:relative;
+    left:-350px;
+    top: -100px;
+}
+.sec
+{
+    position:relative;
+    left:-320px;
+    top: -100px;    
+}
+.first1
+{
+    position:relative;
+    left:-350px;
+    top: -70px;
+}
+.sec1
+{
+    position:relative;
+    left:-320px;
+    top: -70px;    
+}
+.first2
+{
+    position:relative;
+    left:-350px;
+    top: -130px;
+}
+.sec2
+{
+    position:relative;
+    left:-320px;
+    top: -130px;    
+}
+.word
+{
+    position:relative;
+    left:20px;
+    top: -170px ;
+}
+.word1
+{
+    position:relative;
+    left:20px;
+    top: -140px ;
+}
+.word2
+{
+    position:relative;
+    left:20px;
+    top: -200px ;
+}
+.fonts
+{
+    font-family: "proxima-nova","Helvetica Neue",Arial,Sans-serif;
+    font-weight: normal;
+}
+a:link {color:#FF0000;}    /* unvisited link */
+a:visited {color:#333;} /* visited link */
+a:hover {color:#FF00FF;}   /* mouse over link */
+a:active {color:#00FF00;}  /* selected link */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+</style>
+<script>
+function myfunc(clicked_id){
+  var x = clicked_id;
+  window.localStorage.setItem("room",x);
+  window.location = "seats.html";
+}
+</script>
+</head>
+
+<body>
+    <div>
+        <img src="spidermanHead.png">
+    </div>
+
+    <div class="img">
+        <img alt="poster" src="spiderman.png">
+        <img class="word" src="spidermanword.png">
+        <a class="first fonts" onclick="myfunc(this.id)" id="1" href="seats.html">12:05PM</a>
+        <span>&nbsp;&nbsp;&nbsp; </span>
+        <a class="sec fonts" onclick="myfunc(this.id)" id="24252" href="seats.html">3:05PM</a>
+        
+        
+    </div>
+    <hr>
+
+    <div>
+        <img src="StarTrekHead.png">
+    </div>
+
+    <div class="img">
+        <img alt="poster" src="StarTrek.png">
+        <img class="word1" src="starword.png">
+        <a class="first1 fonts" onclick="myfunc(this.id)" id="2" href="seats.html">14:25PM</a>
+        <span>&nbsp;&nbsp;&nbsp; </span>
+        <a class="sec1 fonts" onclick="myfunc(this.id)" id="424" href="seats.html">21:15PM</a>
+    </div>
+
+    <hr>
+
+    <div>
+        <img src="IronManHead.png">
+    </div>
+
+    <div class="img">
+        <img alt="poster" src="IronMan.png">
+        <img class="word1" src="ironword.png">
+        <a class="first1 fonts" onclick="myfunc(this.id)" id="3" href="seats.html">16:00PM</a>
+        <span>&nbsp;&nbsp;&nbsp; </span>
+        <a class="sec1 fonts" onclick="myfunc(this.id)" id="64234" href="seats.html">23:00PM</a>
+    </div>
+    <hr>
+
+    <div>
+        <img src="ThorHead.png">
+    </div>
+
+    <div class="img">
+        <img alt="poster" src="Thor.png">
+        <img class="word1" src="thorword.png">
+        <a class="first1 fonts" onclick="myfunc(this.id)" id="4" href="seats.html">10:00AM</a>
+        <span>&nbsp;&nbsp;&nbsp; </span>
+        <a class="sec1 fonts" onclick="myfunc(this.id)" id="83213" href="seats.html">15:10PM</a>
+    </div>
+    <hr>
+
+    <div>
+        <img src="SteelHead.png">
+    </div>
+
+    <div class="img">
+        <img alt="poster" src="Steel.png">
+        <img class="word2" src="steelword.png">
+        <a class="first2 fonts" onclick="myfunc(this.id)" id="3219" href="seats.html">13:30PM</a>
+        <span>&nbsp;&nbsp;&nbsp; </span>
+        <a class="sec2 fonts" onclick="myfunc(this.id)" id="13210" href="seats.html">20:10PM</a>
+    </div>
+    <hr>
+</body>
+</html>

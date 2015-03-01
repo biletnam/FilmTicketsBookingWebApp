@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { 
+  background: url("bk.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body{
+  padding-left: 60px;
+}
+.sizz{
+    width : 140px;
+    height:40px;
+}
+.fonts
+{
+    font-family: "proxima-nova","Helvetica Neue",Arial,Sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+}
+.pos{
+    position:relative;
+    left:100px;
+}
+.down{
+    padding-bottom: 50px
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+<script>
+function backfunc(){
+  window.location = "login.html";
+}
+function gofunc(){
+  window.location = "cinema.html";
+}
+function myFunc(){
+
+          
+
+        var y = window.localStorage.getItem("account");
+
+        document.getElementById("demo1").innerHTML = document.getElementById("demo1").innerHTML.replace("Caiqi",y); 
+
+            
+        var info = {
+            'ty' : "account",
+            'account': y
+        };
+
+        $.ajax({
+            url: "process.php",
+            data: JSON.stringify(info),
+            type: "POST",
+            dataType: "json",
+            success:function(data){
+              // alert("sccccc");
+              var objjson = JSON.stringify(data);
+              var j = JSON.parse(objjson);
+              var lines = j.seats.split("&");
+                var string ="";
+
+                for(var i = 0 ; i < lines.length - 1; i++){
+
+                  var a = lines[i].split("_");
+                  if(a.length < 3) continue;
+                  var filmtype = film(a[0]);
+                  string += "film: "+ filmtype.fontcolor("green") +" seats: ";
+                  for(var j = 1 ; j < a.length - 1 ; j++){
+                    string += a[j].fontcolor("red") + " ";
+                  }
+                  string += "<br>"
+                  
+                }
+                if(string != ""){
+                document.getElementById("demo2").innerHTML = string;
+              }else{
+                 document.getElementById("demo2").innerHTML = "You haven't reserve any tickets".fontcolor("green");
+              }
+              // alert("fcuk");
+            },
+            error: function(e){
+              alert("error");
+            },
+            contentType: "application/json; charset=utf-8"
+        });
+
+            // $.get( "process.php", function( data ) {
+            //     var x = jQuery.parseJSON(data);
+                
+            //     var lines = x.seats.split("&");
+            //     var string ="";
+
+            //     for(var i = 0 ; i < lines.length - 1; i++){
+
+            //     	var a = lines[i].split("_");
+            //     	if(a.length < 3) continue;
+            //     	var filmtype = film(a[0]);
+            //     	string += "film: "+ filmtype.fontcolor("green") +" seats: ";
+            //     	for(var j = 1 ; j < a.length - 1 ; j++){
+            //     		string += a[j].fontcolor("red") + " ";
+            //     	}
+            //     	string += "<br>"
+                	
+            //     }
+            //     document.getElementById("demo2").innerHTML = string;
+
+            // });
+            
+             
+
+        }
+function film(x){
+	if(x=="1") return "The Amazing Spider-Man 2";
+	if(x=="2") return "Star Trek Into Darkness"; 
+	if(x=="3") return "Iron Man 3";
+	if(x=="4") return "Thor:The Dark World";
+	if(x=="5") return "Man of Steel";
+}
+</script>
+</head>
+
+<body onload="myFunc()">
+  <div class="down">
+  <p class="fonts" id="demo1"> Welcome <Strong>Caiqi</Strong>, you can view your reserved seats below:</p>
+  <p class="fonts" id="demo2"></p>
+  </div>
+
+  <div style="float:left">
+    <img class="sizz" src="back.png" onclick="backfunc()"></img>
+  </div>
+
+  <div class="pos">
+    <img class="sizz" src="view.png" onclick="gofunc()"></img>
+  </div>
+</body>
+</html> 
+
